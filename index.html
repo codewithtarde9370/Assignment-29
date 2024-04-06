@@ -30,13 +30,18 @@ font-family: Arial, Helvetica, sans-serif;
             
         }
         .dice-img{
-
-height: 300px;
-width: auto;
+  
+            height: 300px;
+            width: auto;
+           
+        }
+        .animate{
+            animation: roll is infinite;
         }
         button{
             color: white;
             padding: 10px 30px;
+            margin-top: 20px;
             border-radius: 20px;
             border: none;
             background-color: #FFE53B;
@@ -45,12 +50,21 @@ width: auto;
             cursor: pointer;
         }
 
+        @keyframes roll {
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+
     </style>
 </head>
 <body>
     <div class="container">
         <h2 class="bungee-spice-regular">DICE ROLLER</h2>
-        <img src="./default.png" class="dice-img">
+        <img src="./default.png" class="dice-img" id="img">
         <button onclick="getRandomNumber()">Roll Dice!</button>
     </div>
 
@@ -62,29 +76,30 @@ width: auto;
 
             const diceFace= Math.round(Math.random()*(max-min)) + min;
             
-            const img= document.getElementById("dice-img");
+            const dice_img= document.getElementById("img");
            
             switch(diceFace){
                 case 1:
-                img.src='./dice1.png';
+                dice_img.src='./dice1.png';
                  break;
                 case 2:
-                img.src='./dice2.png';
+                dice_img.src='./dice2.png';
                 break;
                 case 3:
-                img.src='./dice3.png';
+                dice_img.src='./dice3.png';
                 break;
                 case 4:
-                img.src='./dice4.png';
+                dice_img.src='./dice4.png';
                 break;
                 case 5:
-                img.src='./dice5.png';
+                dice_img.src='./dice5.png';
                 break;
                 case 6:
-                img.src='./dice6.png';
+                dice_img.src='./dice6.png';
                 break;
                  
             }
+            dice_img.classList.add('animate');
      }
     </script>
        
