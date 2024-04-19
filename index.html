@@ -36,7 +36,7 @@ font-family: Arial, Helvetica, sans-serif;
            
         }
         .animate{
-            animation: roll is infinite;
+            animation: roll 1s infinite;
         }
         button{
             color: white;
@@ -58,6 +58,7 @@ font-family: Arial, Helvetica, sans-serif;
                 transform: rotate(360deg);
             }
         }
+       
 
     </style>
 </head>
@@ -97,9 +98,14 @@ font-family: Arial, Helvetica, sans-serif;
                 case 6:
                 dice_img.src='./dice6.png';
                 break;
+                default:
+                dice_img.src='./default.png';
                  
             }
-            dice_img.classList.add('animate');
+            dice_img.classList.add("animate");
+            setTimeout(()=>{
+                dice_img.classList.remove("animate");
+            },1000);
      }
     </script>
        
